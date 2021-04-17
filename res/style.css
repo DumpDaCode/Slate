@@ -1,0 +1,80 @@
+window.background{
+	background-color: #373d3f;
+	color: black;
+	border:none;
+}
+
+dialog headerbar{
+	background: #2b2b2b;
+	color: white;
+	border:none;
+	border: none;
+}
+
+dialog headerbar button{
+	color:white;
+	border: none;
+}
+
+dialog headerbar button:last-child{
+	background:#373d3f;
+}
+
+dialog headerbar button:nth-child(2){
+	background:green;
+}
+
+label{
+	min-height: 30px;
+	margin-bottom: 5px;
+}
+
+.sec-head{
+	border-bottom: 3px solid black;
+}
+
+grid button{
+	border: 0px;
+	border-style: none;
+	background: #a7afa2;
+}
+
+button.combo{
+	background: #a7afa2;
+	border: 1px solid #48494b;
+	color: black;
+}
+
+window.popup menu, dialog{
+	background-color: #373d3f;
+	color: white;
+	border:none;
+}
+
+window.popup menuitem:hover{
+	background: #a7afa2;
+	color: black
+}
+
+button.color{
+	background: none;
+	border: none;
+}
+
+button:hover{
+	box-shadow: 0px 0px 3px #48494b;
+}
+
+.panel{
+	font-weight: bold;
+	font-family: arial;
+	background-color: #a7afa2;
+	padding: 10px;
+	box-shadow: 2px 2px 2px black;
+	border-radius: 5px;
+	border:  1px solid #48494b;
+}
+
+box:nth-child(2){
+	box-shadow: 2px 2px 2px black;
+}

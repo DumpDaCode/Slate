@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <object class="GtkApplicationWindow" id="window">
+        <property name="title">Slate</property>
+        <property name="resizable">True</property>
+        <property name="window-position">GTK_WIN_POS_CENTER_ALWAYS</property>
+		<child>
+            <object class="GtkScrolledWindow">
+                <property name="min-content-width">585</property>
+                <property name="min-content-height">540</property>
+                <child>
+        			<object class="GtkBox" id="container">
+                        <property name="spacing">15</property>
+                        <property name="border-width">15</property>
+                        <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
+                        <property name="homogeneous">False</property>
+        				<child>
+                            <object class="GtkFixed">
+                                <child>
+                					<object class="GtkGrid" id="panel">
+                                        <property name="width-request">100</property>
+                                        <property name="height-request">100</property>
+                                        <property name="row-spacing">10</property>
+                                        <property name="column-spacing">10</property>
+                                        <property name="column-homogeneous">True</property>
+                						<child>
+                							<object class="GtkLabel" id="label1">
+                								<property name="label">Tools</property>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">0</property>
+                                                <property name="width">2</property>
+                							</packing>
+                						</child>
+                                        <child>
+                							<object class="GtkButton">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">A Pencil</property>
+                                                <signal name="clicked" handler="set_current_tool_pencil" />
+                                                <child>
+                                                    <object class="GtkImage">
+                                                        <property name="resource">/slate/res/icons/pencil.png</property>
+                                                    </object>
+                                                </child>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">1</property>
+                							</packing>
+                						</child>
+                                        <child>
+                							<object class="GtkButton">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">A Line</property>
+                                                <signal name="clicked" handler="set_current_tool_line" />
+                                                <child>
+                                                    <object class="GtkImage">
+                                                        <property name="resource">/slate/res/icons/line.png</property>
+                                                    </object>
+                                                </child>
+                							</object>
+                							<packing>
+                								<property name="left-attach">1</property>
+                								<property name="top-attach">1</property>
+                							</packing>
+                						</child>
+                                        <child>
+                							<object class="GtkButton">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">A Curve</property>
+                                                <signal name="clicked" handler="set_current_tool_curve" />
+                                                <child>
+                                                    <object class="GtkImage">
+                                                        <property name="resource">/slate/res/icons/curve.png</property>
+                                                    </object>
+                                                </child>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">2</property>
+                							</packing>
+                						</child>
+                                        <child>
+                							<object class="GtkButton">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">A Circle</property>
+                                                <signal name="clicked" handler="set_current_tool_circle" />
+                                                <child>
+                                                    <object class="GtkImage">
+                                                        <property name="resource">/slate/res/icons/circle.png</property>
+                                                    </object>
+                                                </child>
+                							</object>
+                							<packing>
+                								<property name="left-attach">1</property>
+                								<property name="top-attach">2</property>
+                							</packing>
+                						</child>
+                                        <child>
+                                            <object class="GtkButton">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">Color fill</property>
+                                                <signal name="clicked" handler="set_current_tool_fill" />
+                                                <child>
+                                                    <object class="GtkImage">
+                                                        <property name="resource">/slate/res/icons/fill.png</property>
+                                                    </object>
+                                                </child>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">3</property>
+                							</packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkButton">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">Eraser</property>
+                                                <signal name="clicked" handler="set_current_tool_eraser" />
+                                                <child>
+                                                    <object class="GtkImage">
+                                                        <property name="resource">/slate/res/icons/eraser.png</property>
+                                                    </object>
+                                                </child>
+                							</object>
+                							<packing>
+                								<property name="left-attach">1</property>
+                								<property name="top-attach">3</property>
+                							</packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkDrawingArea" id="tip_size">
+                                                <property name="width-request">100</property>
+                                                <property name="height-request">30</property>
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">Setting Tip size</property>
+                                                <property name="events">GDK_BUTTON_PRESS_MASK</property>
+                                                <signal name="realize" handler="set_tip" />
+                                                <signal name="draw" handler="draw_tip" />
+                                                <signal name="button-press-event" handler="update_size" />
+                                            </object>
+                                            <packing>
+                                                <property name="left-attach">0</property>
+                                                <property name="top-attach">4</property>
+                                                <property name="width">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkComboBoxText">
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">Sheet size in W X H</property>
+                                                <property name="active">0</property>
+                                                <signal name="changed" handler="set_window_size" />
+                                                <items>
+                                                    <item>400 X 500</item>
+                                                    <item>600 X 500</item>
+                                                    <item>800 X 600</item>
+                                                    <item>1000 X 600</item>
+                                                </items>
+                                            </object>
+                                            <packing>
+                                                <property name="left-attach">0</property>
+                                                <property name="top-attach">5</property>
+                                                <property name="width">2</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel" id="label2">
+                								<property name="label">Color</property>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">6</property>
+                                                <property name="width">2</property>
+                							</packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel">
+                								<property name="label">F</property>
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">Foreground Color</property>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">7</property>
+                                                <property name="width">1</property>
+                							</packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkColorButton">
+                                                <property name="title">Foreground</property>
+                                                <property name="rgba">black</property>
+                                                <property name="use_alpha">False</property>
+                                                <property name="show-editor">True</property>
+                                                <signal name="color-set" handler="set_foreground" />
+                                            </object>
+                                            <packing>
+                                                <property name="left-attach">1</property>
+                                                <property name="top-attach">7</property>
+                                                <property name="width">1</property>
+                                            </packing>
+                                        </child>
+                                        <child>
+                                            <object class="GtkLabel">
+                								<property name="label">B</property>
+                                                <property name="has-tooltip">True</property>
+                                                <property name="tooltip-text">Background Color</property>
+                							</object>
+                							<packing>
+                								<property name="left-attach">0</property>
+                								<property name="top-attach">8</property>
+                                                <property name="width">1</property>
+                							</packing>
+                                            </child>
+                                            <child>
+                                                <object class="GtkColorButton">
+                                                    <property name="title">Background</property>
+                                                    <property name="rgba">white</property>
+                                                    <property name="use_alpha">False</property>
+                                                    <property name="show-editor">True</property>
+                                                    <signal name="color-set" handler="set_background" />
+                                                </object>
+                                                <packing>
+                                                    <property name="left-attach">1</property>
+                                                    <property name="top-attach">8</property>
+                                                    <property name="width">1</property>
+                                                </packing>
+                                            </child>
+        					             </object>
+                                    <packing>
+                                        <property name="x">0</property>
+                                        <property name="y">0</property>
+                                    </packing>
+                                </child>
+                            </object>
+                            <packing>
+                                <property name="position">0</property>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                            </packing>
+        				</child>
+        				<child>
+                            <object class="GtkDrawingArea" id="sheet">
+                                <property name="width-request">400</property>
+                                <property name="height-request">500</property>
+                                <property name="events">GDK_BUTTON_MOTION_MASK|GDK_BUTTON_PRESS_MASK|GDK_BUTTON_RELEASE_MASK|GDK_KEY_PRESS_MASK</property>
+                                <signal name="realize" handler="init_sheet" />
+                                <signal name="draw" handler="draw_sheet" />
+                                <signal name="button-press-event" handler="on_click" />
+                                <signal name="motion-notify-event" handler="on_motion" />
+                                <signal name="button-release-event" handler="on_release" />
+                            </object>
+                            <packing>
+                                <property name="position">1</property>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                            </packing>
+                        </child>
+			        </object>
+                </child>
+            </object>
+		</child>
+    </object>
+</interface>
