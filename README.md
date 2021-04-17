@@ -10,9 +10,15 @@ It is a simple paint app that has the following features:
 2. Supports foreground and background color options.
 3. Supports undo (upto depth 10) and redo (depth 1 with respect to undo)
 4. Responds to ctrl+w, ctrl+y, ctrl+z.
-5. Right clicking on the sheet undoes the previous drawing with respect to current tool. (e.g. if eraser tool is selected then this action results in clearing and resetting of background while for rest of the tools it is undo only)
-6. Different Cursor for different tool selected. 
-7. 3 Different sheet sizes; 400 X 500, 600 X 500, 800 X 600 and 1000 X 600.
-8. 3 sizes for tip; 1px 3px 5px.
+5. Different Cursor for different tool selected. 
+6. 3 Different sheet sizes; 400 X 500, 600 X 500, 800 X 600 and 1000 X 600.
+7. 3 sizes for tip; 1px 3px 5px.
+
+## How to use tools
+
+1. Click and drag for line, circle, pencil and release to set it. 
+2. Click and drag to first draw a line and then again click and drag to set a control point for a curve.
+3. Right click (all tools except eraser) to undo.
+4. Right click (while eraser is selected) causes re setting of background.
 
 In future, I would like to add more features to it. Any kind of suggestions are welcomed.
