@@ -3,7 +3,7 @@
 ![Screenshot from 2021-04-17 17-47-05](https://user-images.githubusercontent.com/56605804/115114961-88e90d80-9faf-11eb-9100-c4725de739e8.png)
 
 This is one of my hobby project. It works on linux only and requires gtk+3.24.20 and above.
-Compile it from src/ directory by using #make and then run it by #./slate
+**Compile it from src/ directory by using _make_ and then run it by ./slate**
 It is a simple paint app that has the following features: 
 
 1. 6 Basic tools; pencil, line, curve, circle, bucket fill, eraser.
