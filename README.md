@@ -2,8 +2,18 @@
 ![Screenshot from 2021-04-16 22-51-36](https://user-images.githubusercontent.com/56605804/115114957-84bcf000-9faf-11eb-822a-8a20e3850275.png) 
 ![Screenshot from 2021-04-17 17-47-05](https://user-images.githubusercontent.com/56605804/115114961-88e90d80-9faf-11eb-9100-c4725de739e8.png)
 
-This is one of my hobby project. It works on linux only and requires gtk+3.24.20 and above.
-**Compile it from src/ directory by using _make_ and then run it by _./slate_.**
+This is one of my hobby project. It works requires gtk+3.24.20 and glib-2.0.
+
+If you want to compile it on Windows:
+1. Install msys2.
+2. Add mingw64's bin folder to PATH in environment variables.
+3. Open a mingw64 terminal and run install_windows.sh in scripts/
+4. Run application from release folder.
+
+If you want to compile it on Linux:  
+2. Run install.sh in scripts/
+3. Run application from release folder.
+ 
 It is a simple paint app that has the following features: 
 
 1. 6 Basic tools; pencil, line, curve, circle, bucket fill, eraser.

@@ -15,7 +15,14 @@ res:
 	glib-compile-resources --manual-register --sourcedir=../res/ --generate-header $(RESOURCE)
 
 install: $(OBJS)
-	gcc $(OBJS) $(LIBS) -o slate -lm -rdynamic
+	gcc $(OBJS) $(LIBS) -o ../release/slate -lm -rdynamic
+
+$(TARGET)-windows: all-windows clear
+
+all-windows: res install-windows
+
+install-windows: $(OBJS)
+	gcc $(OBJS) $(LIBS) -o ../release/slate -lm -Wl,--export-all-symbols,--subsystem,windows
 
 %.o: %.c
 	gcc -c $(CFLAGS) $^ -o $@ -Wall
