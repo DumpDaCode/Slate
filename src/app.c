@@ -67,17 +67,16 @@ void app_init(GApplication *app, gpointer data){
 }
 
 #ifdef _WIN32
-int WinMain (void * hInstance, void * hPrevInstance, char ** argv, int nCmdShow)
+int WinMain (void * hInstance, void * hPrevInstance, char ** argv, int nCmdShow){
+	GtkApplication *app = gtk_application_new("slate.src", G_APPLICATION_DEFAULT_FLAGS);
 #else
-int main (int argc, char ** argv)
+int main (int argc, char ** argv){
+	GtkApplication *app = gtk_application_new("slate.src", G_APPLICATION_FLAGS_NONE);
 #endif
-{
 /*
     Application.
 */
-    GtkApplication *app;
     int status;
-    app = gtk_application_new("slate.src", G_APPLICATION_DEFAULT_FLAGS);
     g_signal_connect(app, "activate", G_CALLBACK(app_init), NULL);
     status = g_application_run (G_APPLICATION (app), 0, argv);
     g_object_unref (app);

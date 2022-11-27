@@ -15,7 +15,7 @@ res:
 	glib-compile-resources --manual-register --sourcedir=../res/ --generate-header $(RESOURCE)
 
 install: $(OBJS)
-	gcc $(OBJS) $(LIBS) -o ../release/slate -lm -rdynamic
+	gcc $(OBJS) $(LIBS) -o ../release/slate -lm -rdynamic -no-pie
 
 $(TARGET)-windows: all-windows clear
 
